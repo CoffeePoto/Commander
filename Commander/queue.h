@@ -45,7 +45,6 @@ public:
 		return true;
 	}
 
-	//for 
 private:
 	T Tarray[maxQueue + 1] = { };
 	int front = 0;

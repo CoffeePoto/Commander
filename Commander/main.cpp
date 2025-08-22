@@ -23,6 +23,8 @@ int main()
 	Stack<ICommand*> Redo;
 	//키보드 입력 큐
 	queue<ICommand*> KeyInput;
+	//전에 커맨드 입력이 아닌 undo가 실행되었을 때
+	bool Modify = false;
 
 
 	//입력은 command인 a,b,c,d,e가 들어온다고 가정
@@ -49,6 +51,11 @@ int main()
 			ICommand* commandAction;
 			KeyInput.Dequeue(commandAction);
 			Undo.push(commandAction);
+			if (Modify)
+			{
+				Redo.Clear();
+				Modify = false;
+			}
 		}
 		else if (strcmp(input, "B") == 0 || strcmp(input, "b") == 0)
 		{
@@ -58,6 +65,11 @@ int main()
 			ICommand* commandAction;
 			KeyInput.Dequeue(commandAction);
 			Undo.push(commandAction);
+			if (Modify)
+			{
+				Redo.Clear();
+				Modify = false;
+			}
 		}
 		else if (strcmp(input, "C") == 0 || strcmp(input, "c") == 0)
 		{
@@ -67,6 +79,11 @@ int main()
 			ICommand* commandAction;
 			KeyInput.Dequeue(commandAction);
 			Undo.push(commandAction);
+			if (Modify)
+			{
+				Redo.Clear();
+				Modify = false;
+			}
 		}
 		else if (strcmp(input, "D") == 0 || strcmp(input, "d") == 0)
 		{
@@ -76,6 +93,11 @@ int main()
 			ICommand* commandAction;
 			KeyInput.Dequeue(commandAction);
 			Undo.push(commandAction);
+			if (Modify)
+			{
+				Redo.Clear();
+				Modify = false;
+			}
 		}
 		else if (strcmp(input, "E") == 0 || strcmp(input, "e") == 0)
 		{
@@ -85,9 +107,15 @@ int main()
 			ICommand* commandAction;
 			KeyInput.Dequeue(commandAction);
 			Undo.push(commandAction);
+			if (Modify)
+			{
+				Redo.Clear();
+				Modify = false;
+			}
 		}
 		else if (!strcmp(input, "undo"))
 		{
+			Modify = true;
 			//Undo할 것이 없는 경우
 			if (Undo.getSize() == 0)
 			{
@@ -100,6 +128,7 @@ int main()
 		}
 		else if (!strcmp(input, "redo"))
 		{
+			Modify = true;
 			//Redo할 것이 없는 경우
 			if (Redo.getSize() == 0)
 			{
