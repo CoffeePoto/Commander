@@ -1,0 +1,47 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.ncb
+*.aps
+*.obj
+*.pdb
+*.ilk
+*.ipch
+*.log
+*.tlog
+*.lastbuildstate
+*.VC.opendb
+*.VC.db
+*.exe
+*.dll
+*.lib
+*.exp
+*.map
+*.bak
+*.sbr
+*.bsc
+*.res
+*.pch
+*.idb
+*.iobj
+*.o
+
+# Build and Output Folders
+Debug/
+Release/
+x64/
+Win32/
+bin/
+obj/
+out/
+
+# CMake related files (if using CMake)
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles/
+_CPack_Packages/
+DartConfiguration.tcl
+Testing/
+_deps/
+build/
